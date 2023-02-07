@@ -2,7 +2,7 @@
 	import { Canvas, OrbitControls, T, Pass } from '@threlte/core';
 	import { degToRad } from 'three/src/math/MathUtils';
 	import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
-	import { AmbientLight, Vector2 } from 'three';
+	import { Vector2 } from 'three';
 </script>
 
 <div class="bg-black min-h-screen flex flex-col items-center justify-center overflow-hidden">
