@@ -9,7 +9,7 @@
 		nestedArray[i][j] = !nestedArray[i][j];
 	};
 	let playing = false;
-	let bpm = 100;
+	let bpm = 120;
 	let currentChord = -1;
 	let synth;
 	let a = 0.5;
@@ -90,7 +90,7 @@
 				<button
 					class="py-1 border text-center hover:bg-zinc-700 hover:text-white {nestedArray[i][j]
 						? 'bg-white text-black'
-						: ''} {j == currentChord ? 'bg-orange-600 text-white' : ''}}"
+						: ''} {j == currentChord ? 'bg-stone-300 text-black' : ''}"
 					on:click={add(i, j)}>{note}</button
 				>
 			{/each}
