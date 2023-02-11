@@ -1,5 +1,9 @@
 <script>
-  import "../app.css";
+	import '../app.css';
 </script>
 
-<slot />
+<div
+	class="bg-black min-h-screen flex flex-col items-center overflow-hidden font-courier text-white justify-center"
+>
+	<slot />
+</div>
