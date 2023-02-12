@@ -50,7 +50,7 @@
 
 <div class="flex w-4/5 justify-between items-center">
 	<p class="text-7xl">SMPL</p>
-	<div class="flex gap-2">
+	<div class="flex gap-2 justify-center">
 		<div class="text-4xl">BPM: {bpm}</div>
 		<button on:click={() => (bpm += 1)}>
 			<Icon src={ArrowSmallUp} theme="outline" class="h-8" />
