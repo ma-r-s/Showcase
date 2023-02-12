@@ -1,0 +1,6 @@
+{
+	"appId": "com.showcase.mars",
+	"appName": "Showcase",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
