@@ -48,7 +48,7 @@
 	nextChord();
 </script>
 
-<div class="flex w-4/5 justify-between items-center">
+<div class="flex w-full justify-between items-center">
 	<p class="text-7xl">SMPLR</p>
 	<div class="flex gap-2 justify-center">
 		<div class="text-4xl">BPM: {bpm}</div>
@@ -78,7 +78,7 @@
 </div>
 <div class="flex w-full">
 	<div
-		class=" w-2/3 grid grid-cols-[repeat(17,minmax(0,1fr))] border gap-3 p-4 justify-items-center"
+		class=" w-2/3 grid grid-cols-[repeat(17,minmax(0,1fr))] border gap-3 p-4 place-items-stretch"
 	>
 		<div />
 		{#each Array(16) as _, n}
@@ -87,15 +87,14 @@
 		{#each notes as note, i}
 			<p class="text-center text-2xl font-bold">{note}</p>
 			{#each Array(16) as _, j}
-				<button on:click={add(i, j)}
-					><div
-						class="aspect-square border text-center hover:bg-zinc-700 hover:text-white {nestedArray[
-							i
-						][j]
-							? 'bg-white text-black'
-							: ''} {j == currentChord ? 'border-red-600 text-black' : ''}"
-					/></button
-				>
+				<button
+					class="aspect-square border text-center hover:bg-zinc-700 hover:text-white {nestedArray[
+						i
+					][j]
+						? 'bg-white text-black'
+						: ''} {j == currentChord ? 'border-red-600 text-black' : ''}"
+					on:click={add(i, j)}
+				/>
 			{/each}
 		{/each}
 	</div>
