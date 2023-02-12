@@ -49,7 +49,7 @@
 </script>
 
 <div class="flex w-4/5 justify-between items-center">
-	<p class="text-7xl">SMPL</p>
+	<p class="text-7xl">SMPLR</p>
 	<div class="flex gap-2 justify-center">
 		<div class="text-4xl">BPM: {bpm}</div>
 		<button on:click={() => (bpm += 1)}>
@@ -59,7 +59,7 @@
 			<Icon src={ArrowSmallUp} theme="outline" class="h-8 transform rotate-180" />
 		</button>
 	</div>
-	<div class="flex gap-5">
+	<div class="flex gap-2 justify-center">
 		<button on:click={() => (playing = true)}>
 			<Icon src={Play} theme="outline" class="h-8 stroke-green-500" />
 		</button>
