@@ -78,26 +78,29 @@
 		</div>
 	</div>
 </div>
-<div class="flex w-full p-4">
+<div class="flex w-full">
 	<div
-		class=" w-2/3 grid grid-cols-[repeat(16,minmax(0,1fr))] grid-rows-[repeat(13,minmax(0,1fr))] border gap-4 p-4"
+		class=" w-2/3 grid grid-cols-[repeat(17,minmax(0,1fr))] border gap-3 p-4 justify-items-center"
 	>
+		<div />
 		{#each Array(16) as _, n}
-			<p class="text-center text-2xl font-bold">{n + 1}</p>
+			<div>{n + 1}</div>
 		{/each}
 		{#each notes as note, i}
+			<p class="text-center text-2xl font-bold">{note}</p>
 			{#each Array(16) as _, j}
 				<button
-					class="py-1 border text-center hover:bg-zinc-700 hover:text-white {nestedArray[i][j]
+					class="aspect-square border text-center hover:bg-zinc-700 hover:text-white {nestedArray[
+						i
+					][j]
 						? 'bg-white text-black'
-						: ''} {j == currentChord ? 'bg-stone-300 text-black' : ''}"
-					on:click={add(i, j)}>{note}</button
-				>
+						: ''} {j == currentChord ? 'border-red-600 text-black' : ''}"
+					on:click={add(i, j)}
+				/>
 			{/each}
 		{/each}
 	</div>
 	<div class="border w-1/3">
-		<!-- This makes an svg ADSR visual controller that uses svelte reactivity-->
 		<svg
 			class="border m-5"
 			viewBox="0 0 100 100"

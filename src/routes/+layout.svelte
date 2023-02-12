@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="bg-black min-h-screen flex flex-col items-center overflow-hidden font-courier text-white justify-center"
+	class="p-4 bg-black min-h-screen flex flex-col items-center overflow-hidden font-courier text-white justify-center"
 >
 	<slot />
 </div>
