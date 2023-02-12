@@ -6,6 +6,9 @@
 	let notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 	const nestedArray = Array.from(Array(12), () => Array(16).fill(false));
 	const add = (i, j) => () => {
+		if (!nestedArray[i][j]) {
+			synth.triggerAttackRelease(notes[i] + '4', '8n');
+		}
 		nestedArray[i][j] = !nestedArray[i][j];
 	};
 	let playing = false;
@@ -22,7 +25,6 @@
 	$: rs = ((a + d + s) * 80) / sum + 10;
 
 	if (browser) {
-		// it uses ampEvn to control the volume
 		synth = new Tone.PolySynth(Tone.Synth, {
 			envelope: {
 				attack: a,
@@ -48,23 +50,23 @@
 	nextChord();
 </script>
 
-<div class="flex w-full justify-between items-center">
-	<p class="text-7xl">SMPLR</p>
-	<div class="flex gap-2 justify-center">
-		<div class="text-4xl">BPM: {bpm}</div>
+<div class="flex w-5/6 justify-between items-center ">
+	<p class="text-7xl">SMPL</p>
+	<div class=" flex gap-4">
+		<div class="text-4xl ">BPM: {bpm}</div>
 		<button on:click={() => (bpm += 1)}>
-			<Icon src={ArrowSmallUp} theme="outline" class="h-8" />
+			<Icon src={ArrowSmallUp} theme="outline" class="h-8  w-8" />
 		</button>
 		<button on:click={() => (bpm -= 1)}>
-			<Icon src={ArrowSmallUp} theme="outline" class="h-8 transform rotate-180" />
+			<Icon src={ArrowSmallUp} theme="outline" class="h-8 transform rotate-180 w-8" />
 		</button>
 	</div>
-	<div class="flex gap-2 justify-center">
+	<div class="flex gap-4 justify-center">
 		<button on:click={() => (playing = true)}>
-			<Icon src={Play} theme="outline" class="h-8 stroke-green-500" />
+			<Icon src={Play} theme="outline" class="h-8 w-8 stroke-green-500" />
 		</button>
 		<button on:click={() => (playing = false)}>
-			<Icon src={Pause} theme="outline" class="h-8 " />
+			<Icon src={Pause} theme="outline" class="h-8 w-8" />
 		</button>
 		<button
 			on:click={() => {
@@ -72,10 +74,11 @@
 				playing = false;
 			}}
 		>
-			<Icon src={Stop} theme="outline" class="h-8 stroke-red-600" />
+			<Icon src={Stop} theme="outline" class="h-8 w-8 stroke-red-600" />
 		</button>
 	</div>
 </div>
+
 <div class="flex w-full">
 	<div
 		class=" w-2/3 grid grid-cols-[repeat(17,minmax(0,1fr))] border gap-3 p-4 place-items-stretch"
@@ -88,11 +91,10 @@
 			<p class="text-center text-2xl font-bold">{note}</p>
 			{#each Array(16) as _, j}
 				<button
-					class="aspect-square border text-center hover:bg-zinc-700 hover:text-white {nestedArray[
-						i
-					][j]
-						? 'bg-white text-black'
-						: ''} {j == currentChord ? 'border-red-600 text-black' : ''}"
+					class="aspect-square border text-center {nestedArray[i][j] ? 'bg-white' : ''} {j ==
+					currentChord
+						? 'border-red-600'
+						: ''}"
 					on:click={add(i, j)}
 				/>
 			{/each}
@@ -117,7 +119,6 @@
 			<circle cx={rs} cy="50" r="2" class="stroke-white" />
 			<line x1="5" y1="90" x2="95" y2="90" class="stroke-white stroke-2" />
 		</svg>
-		<!-- Four range input for ADSR -->
 		<div class="flex flex-col gap-4 p-4">
 			<div class="flex justify-between">
 				<label for="attack">Attack</label>
