@@ -50,32 +50,30 @@
 
 <div class="flex w-4/5 justify-between items-center">
 	<p class="text-7xl">SMPL</p>
-	<div class="flex justify-end gap-20">
-		<div class="flex gap-4">
-			<div class="text-4xl">BPM: {bpm}</div>
-			<button on:click={() => (bpm += 1)}>
-				<Icon src={ArrowSmallUp} theme="outline" class="h-8" />
-			</button>
-			<button on:click={() => (bpm -= 1)}>
-				<Icon src={ArrowSmallUp} theme="outline" class="h-8 transform rotate-180" />
-			</button>
-		</div>
-		<div class="flex gap-5">
-			<button on:click={() => (playing = true)}>
-				<Icon src={Play} theme="outline" class="h-8 stroke-green-500" />
-			</button>
-			<button on:click={() => (playing = false)}>
-				<Icon src={Pause} theme="outline" class="h-8 " />
-			</button>
-			<button
-				on:click={() => {
-					currentChord = -1;
-					playing = false;
-				}}
-			>
-				<Icon src={Stop} theme="outline" class="h-8 stroke-red-600" />
-			</button>
-		</div>
+	<div class="flex gap-2">
+		<div class="text-4xl">BPM: {bpm}</div>
+		<button on:click={() => (bpm += 1)}>
+			<Icon src={ArrowSmallUp} theme="outline" class="h-8" />
+		</button>
+		<button on:click={() => (bpm -= 1)}>
+			<Icon src={ArrowSmallUp} theme="outline" class="h-8 transform rotate-180" />
+		</button>
+	</div>
+	<div class="flex gap-5">
+		<button on:click={() => (playing = true)}>
+			<Icon src={Play} theme="outline" class="h-8 stroke-green-500" />
+		</button>
+		<button on:click={() => (playing = false)}>
+			<Icon src={Pause} theme="outline" class="h-8 " />
+		</button>
+		<button
+			on:click={() => {
+				currentChord = -1;
+				playing = false;
+			}}
+		>
+			<Icon src={Stop} theme="outline" class="h-8 stroke-red-600" />
+		</button>
 	</div>
 </div>
 <div class="flex w-full">
