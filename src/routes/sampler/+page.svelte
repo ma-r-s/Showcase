@@ -87,14 +87,15 @@
 		{#each notes as note, i}
 			<p class="text-center text-2xl font-bold">{note}</p>
 			{#each Array(16) as _, j}
-				<button
-					class="aspect-square border text-center hover:bg-zinc-700 hover:text-white {nestedArray[
-						i
-					][j]
-						? 'bg-white text-black'
-						: ''} {j == currentChord ? 'border-red-600 text-black' : ''}"
-					on:click={add(i, j)}
-				/>
+				<button on:click={add(i, j)}
+					><div
+						class="aspect-square border text-center hover:bg-zinc-700 hover:text-white {nestedArray[
+							i
+						][j]
+							? 'bg-white text-black'
+							: ''} {j == currentChord ? 'border-red-600 text-black' : ''}"
+					/></button
+				>
 			{/each}
 		{/each}
 	</div>
