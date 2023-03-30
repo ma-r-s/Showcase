@@ -8,6 +8,7 @@ This repository showcases a web application built using TailwindCSS, Svelte, Ton
 - Reactive components and state management using Svelte
 - Audio synthesis and manipulation with Tone.js
 - 3D graphics rendering using Threlte, a Three.js wrapper for Svelte
+- Digital Signal Processing techniques
 
 ## Getting Started
 
